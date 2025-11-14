@@ -48,6 +48,9 @@ h1 {
 .loader-section:hover {
     /* TODO: Add transform (ex: translateY(-5px)) */
     /* TODO: Add box-shadow */
+    transform: translateY(5px);
+    /* box-shadow: 0 4px 6px rgb(251, 168, 236); */
+    box-shadow: 0 4px 6px var(--primary-color);
 }
 
 h2 {
@@ -83,10 +86,18 @@ h2 {
     transform: scale(1);
     /* TODO: Add animation property
        Use: spin, var(--animation-duration), linear, infinite */
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 /* TODO: Create @keyframes spin
    Hint: Rotate from 0deg to 360deg using transform: rotate() */
+@keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
 
 
 /* ============ PROGRESS BAR LOADER ============ */
@@ -117,6 +128,7 @@ h2 {
     height: 100%;
     /* TODO: Add background with linear-gradient
        Use: var(--primary-color), var(--secondary-color)) */
+    background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     border-radius: 15px;
     width: 0%;
     transition: width 0.05s linear;
@@ -154,20 +166,31 @@ h2 {
 .dots-loader.active .dot {
     /* TODO: Add animation property
        Use: bounce, 0.6s, ease-in-out, infinite */
+       animation-name: bounce;
+       animation-duration: 0.6s;
+       animation-timing-function: ease-in-out;
+       animation-iteration-count: infinite;
 }
 
 .dots-loader.active .dot:nth-child(2) {
     /* TODO: Add animation-delay */
+    animation-delay: .1s;
 }
 
 .dots-loader.active .dot:nth-child(3) {
     /* TODO: Add animation-delay */
+    animation-delay: .2s;
 }
 
 /* TODO: Create @keyframes bounce
    Hint: 
    - At 0% and 100%: translateY(0) scale(1)
    - At 50%: translateY(-20px) scale(1.1) */
+@keyframes bounce {
+    0% {transform: translateY(0) scale(1)}
+    50% {transform: translateY(-20px) scale(1.1)}
+    100% {transform: translateY(0) scale(1)}
+}
 
 
 /* ============ BUTTONS ============ */
